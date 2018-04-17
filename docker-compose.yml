@@ -1,29 +1,31 @@
 version: "3"
-
-networks:
-  hadoop:
-    driver: bridge
-
+ 
 services:
-  hdfs-namenode:
+  namenode:
     image: uhopper/hadoop-namenode
     hostname: namenode
     container_name: namenode
-    domainname: hadoop
-    networks:
-      - hadoop
+    
+    
+      
     environment:
       - CLUSTER_NAME="hadoopy"
     ports:
     - 50070:9090
+    links:
+      - spark
+      - resourcemanager
+      - nodemanager1
+      - datanode1
 
-  hdfs-datanode1:
+
+  datanode1:
     image: uhopper/hadoop-datanode
     hostname: datanode1
     container_name: datanode1
-    domainname: hadoop
-    networks:
-      - hadoop
+    
+    
+      
     environment:
       - CORE_CONF_fs_defaultFS=hdfs://namenode:8020
 
@@ -31,22 +33,22 @@ services:
     image: uhopper/hadoop-resourcemanager
     hostname: resourcemanager
     container_name: resourcemanager
-    domainname: hadoop
-    networks:
-      - hadoop
+    
+    
+      
     environment:
       - CORE_CONF_fs_defaultFS=hdfs://namenode:8020
       - YARN_CONF_yarn_log___aggregation___enable=true
     ports:
-    - 8088:8088
+      - 8088:8088
 
   nodemanager1:
     image: uhopper/hadoop-nodemanager
     hostname: nodemanager1
     container_name: nodemanager1
-    domainname: hadoop
-    networks:
-      - hadoop
+    
+    
+      
     environment:
       - CORE_CONF_fs_defaultFS=hdfs://namenode:8020
       - YARN_CONF_yarn_resourcemanager_hostname=resourcemananger
@@ -57,9 +59,9 @@ services:
     image: uhopper/hadoop-spark
     hostname: spark
     container_name: spark
-    domainname: hadoop
-    networks:
-      - hadoop
+    
+    
+      
     environment:
       - CORE_CONF_fs_defaultFS=hdfs://namenode:8020
       - YARN_CONF_yarn_resourcemanager_hostname=resourcemanager
