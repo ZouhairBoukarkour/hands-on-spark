@@ -1,6 +1,5 @@
 # References
-This document provide all the references used to provide you with this spark formation
-and a few extras for your big data culture
+This document provide all the references used to provide you with this spark formation and a few extras for your big data culture
 
 | Resource | Comment |
 | -------- | ------- |
