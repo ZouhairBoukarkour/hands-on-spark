@@ -5,7 +5,7 @@ import org.apache.spark.sql._
 import org.apache.spark.sql.types._
 
 /** Main class */
-object Sparky {
+object KafkaExample {
 
   import org.apache.spark.sql.SparkSession
   import org.apache.spark.SparkConf
@@ -31,6 +31,8 @@ object Sparky {
 
     df.writeStream
       .format("console")
+      .option("truncate","false")
       .start()
+      .awaitTermination()
   }
 }
