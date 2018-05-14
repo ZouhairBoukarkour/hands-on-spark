@@ -31,7 +31,7 @@ services:
     command: /usr/local/spark/bin/spark-class org.apache.spark.deploy.master.Master -h master
 
   slave:
-    image: spark
+    image: sparky
     hostname: worker
     depends_on:
       - master
