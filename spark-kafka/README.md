@@ -37,7 +37,7 @@ Then using the spark application example, package a spark application and deploy
 
 ```shell
 cd $SPARK_HOME
-./bin/spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.11:2.3.0 <MON_PACKAGE>
+./bin/spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.11:2.0.2 <MON_PACKAGE>
 ```
 
-The additionnal jar ```--packages org.apache.spark:spark-sql-kafka-0-10_2.11:2.3.0``` is provided in the [jars directory in example](example/jars)
+The additionnal jar ```--packages org.apache.spark:spark-sql-kafka-0-10_2.11:2.0.2``` is provided in the [jars directory in example](example/jars)
