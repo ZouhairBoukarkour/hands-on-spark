@@ -10,6 +10,7 @@ services:
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+      - ~/Workspaces/hands-on-spark/:/root/
 
   zookeeper:
     image: wurstmeister/zookeeper
@@ -31,7 +32,7 @@ services:
     command: /usr/local/spark/bin/spark-class org.apache.spark.deploy.master.Master -h master
 
   slave:
-    image: sparky
+    image: jairamc/spark-kafka-streaming
     hostname: worker
     depends_on:
       - master
@@ -46,5 +47,5 @@ services:
     ports:
       - 8081:8081
     volumes:
-      - <MY_LOCAL_DIR>/hands-on-spark/:/root/
+      - ~/Workspaces/hands-on-spark/:/root/
     command: /usr/local/spark/bin/spark-class org.apache.spark.deploy.worker.Worker spark://master:7077
