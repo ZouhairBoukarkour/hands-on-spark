@@ -15,17 +15,11 @@ RUN apt-get install -y --no-install-recommends openjdk-8-jre-headless
 
 # Spark
 RUN cd /tmp && \
-    wget http://apache.crihan.fr/dist/spark/spark-${SPARK_VERSION}/spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz && \
-    tar -xvzf spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz -C /usr/local && \
-    rm spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz
+    wget http://apache.crihan.fr/dist/spark/spark-2.3.0/spark-2.3.0-bin-hadoop2.7.tgz && \
+    tar -xvzf spark-2.3.0-bin-hadoop2.7.tgz -C /usr/local && \
+    rm spark-2.3.0-bin-hadoop2.7.tgz
 
-RUN cd /usr/local && ln -s spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION} spark
-
-# Spark Kafka Streaming
-RUN cd /tmp && \
-    wget http://repo1.maven.org/maven2/org/apache/spark/spark-streaming-kafka-0-10-assembly_${SCALA_VERSION}/${SPARK_VERSION}/spark-streaming-kafka-0-10-assembly_${SCALA_VERSION}-${SPARK_VERSION}.jar && \
-    mv spark-streaming-kafka-0-10-assembly_${SCALA_VERSION}-${SPARK_VERSION}.jar /usr/local/spark/jars
-
+RUN cd /usr/local && ln -s spark-2.3.0-bin-hadoop2.7.tgz spark
 
 EXPOSE 8080
 
