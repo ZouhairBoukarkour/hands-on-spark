@@ -1,4 +1,3 @@
-
 val sparkVersion = "2.3.0"
 
 lazy val commonSettings = Seq(

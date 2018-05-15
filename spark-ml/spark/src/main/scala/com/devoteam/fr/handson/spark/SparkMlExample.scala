@@ -1,7 +1,5 @@
 package com.devoteam.fr.handson.spark
 
-import com.devoteam.fr.handson.spark._
-
 class SparkMlExample() extends SparkSupport with LoggingSupport{
 
   val AppName : String = "MyApp"
@@ -10,6 +8,8 @@ class SparkMlExample() extends SparkSupport with LoggingSupport{
 
   def main(args: Array[String]): Unit = {
 
-  // Now you have a SparkSession accesible using "spark"
+    // Now you have a SparkSession accesible using "spark"
+
+  }
 
 }

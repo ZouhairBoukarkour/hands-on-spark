@@ -1,5 +1,6 @@
 package com.devoteam.fr.handson.spark
 
+import org.apache.spark.sql.SparkSession
 /*
 
   Provide a SparkSession
@@ -16,7 +17,7 @@ trait SparkSupport {
     SparkSession
       .builder()
       .appName(AppName)
-      .config(master, DeployHost)
+      .config("master", DeployHost)
       .getOrCreate()
 
 }

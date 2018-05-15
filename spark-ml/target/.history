@@ -3,3 +3,8 @@ reload
 compile
 reload
 exit
+compile
+exit
+ls
+compile
+exit
