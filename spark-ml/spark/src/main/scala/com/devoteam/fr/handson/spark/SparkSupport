@@ -10,15 +10,13 @@ trait SparkSupport {
 
   val AppName: String
 
-  val DeployMode: String
-
   val DeployHost: String
 
   val spark : SparkSession =
     SparkSession
       .builder()
       .appName(AppName)
-      .config(DeployMode, DeployHost)
+      .config(master, DeployHost)
       .getOrCreate()
 
 }

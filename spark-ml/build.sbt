@@ -8,10 +8,9 @@ lazy val commonSettings = Seq(
   resolvers += "bintray-spark-packages" at "https://dl.bintray.com/spark-packages/maven/",
   resolvers += "Typesafe Simple Repository" at "http://repo.typesafe.com/typesafe/simple/maven-releases/",
   resolvers += "MavenRepository" at "https://mvnrepository.com/",
-  libraryDepencies ++ =
-    "org.scalatest" %% "scalatest" % "2.0" ::
+  libraryDependencies ++=
     "org.slf4j" % "slf4j-api" % "1.7.5" ::
-    "org.slf4j" % "slf4j-simple" % "1.7.5"
+    "org.slf4j" % "slf4j-simple" % "1.7.5" :: Nil
 )
 
 lazy val root = project.in(file("."))
@@ -26,6 +25,6 @@ lazy val spark = project.in(file("spark"))
       "org.apache.spark" %% "spark-core" % sparkVersion ::
         "org.apache.spark" %% "spark-streaming" % sparkVersion ::
         "org.apache.spark" %% "spark-sql" % sparkVersion ::
-        "org.apache.spark" %% "spark-streaming-kafka" % sparkVersion ::
-        "org.apache.spark" %% "spark-mllib" % sparkVersion ::
-  ).dependsOn(dataModels)
+        "org.apache.spark" %% "spark-streaming-kafka-0-10" % sparkVersion ::
+        "org.apache.spark" %% "spark-mllib" % sparkVersion :: Nil
+  )
