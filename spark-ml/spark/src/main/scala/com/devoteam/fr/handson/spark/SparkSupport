@@ -1,0 +1,24 @@
+package com.devoteam.fr.handson.spark
+
+/*
+
+  Provide a SparkSession
+
+ */
+
+trait SparkSupport {
+
+  val AppName: String
+
+  val DeployMode: String
+
+  val DeployHost: String
+
+  val spark : SparkSession =
+    SparkSession
+      .builder()
+      .appName(AppName)
+      .config(DeployMode, DeployHost)
+      .getOrCreate()
+
+}

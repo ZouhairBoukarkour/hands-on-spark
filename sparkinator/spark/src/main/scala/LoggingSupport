@@ -1,0 +1,13 @@
+package com.devoteam.fr.handson.spark
+
+/*
+
+  Provide a SparkSession
+
+ */
+
+trait LoggingSupport {
+
+  val logger = LoggerFactory.getLogger(this.getClass.getName)
+
+}
