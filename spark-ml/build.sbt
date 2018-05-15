@@ -15,7 +15,6 @@ lazy val commonSettings = Seq(
 lazy val root = project.in(file("."))
     .aggregate(spark)
 
-
 lazy val spark = project.in(file("spark"))
   .settings(commonSettings: _*)
   .settings(parallelExecution:= false)
@@ -27,3 +26,5 @@ lazy val spark = project.in(file("spark"))
         "org.apache.spark" %% "spark-streaming-kafka-0-10" % sparkVersion ::
         "org.apache.spark" %% "spark-mllib" % sparkVersion :: Nil
   )
+
+mainClass in (Compile, run) := Some("com.devoteam.fr.handson.spark.SparkMlExample")
